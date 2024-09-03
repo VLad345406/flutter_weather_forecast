@@ -14,7 +14,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  _fetchWeather() async {
+  Future<void> _fetchWeather() async {
     String cityName = 'kharkiv';
 
     try {
@@ -36,42 +36,31 @@ class _HomePageState extends State<HomePage> {
     _fetchWeather();
   }
 
+  Future<void> updateWeather() async {}
+
   @override
   Widget build(BuildContext context) {
-    AppBar appBar = AppBar(
+    return Scaffold(
       backgroundColor: Colors.redAccent,
-      title: const Text(
-        'Weather Forecast',
-        style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700),
-      ),
-      centerTitle: true,
-      elevation: 0,
-    );
-    if (weather!.cityName.isEmpty) {
-      return Scaffold(
-        appBar: appBar,
+      appBar: AppBar(
         backgroundColor: Colors.redAccent,
-        body: const Center(
-          child: Text(
-            'Loading...',
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.w700,
-              fontSize: 30,
-            ),
-          ),
+        title: const Text(
+          'Weather Forecast',
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700),
         ),
-      );
-    } else {
-      return Scaffold(
-        appBar: appBar,
-        backgroundColor: Colors.redAccent,
-        body: Padding(
+        centerTitle: true,
+        elevation: 0,
+      ),
+      body: RefreshIndicator(
+        onRefresh: _fetchWeather,
+        child: weather!.cityName.isEmpty
+            ? const Center(
+          child: CircularProgressIndicator(),
+        )
+            : Padding(
           padding: const EdgeInsets.only(left: 10, right: 10),
           child: Center(
             child: ListView(
-              primary: false,
-              shrinkWrap: true,
               children: [
                 //city search
                 Row(
@@ -109,7 +98,8 @@ class _HomePageState extends State<HomePage> {
                     ),
                     //current day
                     Text(
-                      DateFormat('yyyy-MM-dd HH:mm').format(DateTime.now()),
+                      DateFormat('yyyy-MM-dd HH:mm')
+                          .format(DateTime.now()),
                       style: const TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w300,
@@ -201,8 +191,7 @@ class _HomePageState extends State<HomePage> {
                 const Text(
                   "Weather forecast for specific hours",
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                      color: Colors.white, fontSize: 25),
+                  style: TextStyle(color: Colors.white, fontSize: 25),
                 ),
                 const SizedBox(height: 15),
                 //our weather forecast
@@ -231,18 +220,21 @@ class _HomePageState extends State<HomePage> {
                                   height: 10,
                                 ),
                                 Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  mainAxisAlignment:
+                                  MainAxisAlignment.center,
                                   children: [
                                     Text(
                                       '${weather!.weather[index + 1].temperature.round()} °C',
                                       style: const TextStyle(
-                                          color: Colors.white, fontSize: 25),
+                                          color: Colors.white,
+                                          fontSize: 25),
                                     ),
                                     const SizedBox(
                                       width: 10,
                                     ),
                                     WeatherIcon(
-                                      main: weather!.weather[index + 1].mainCondition,
+                                      main: weather!.weather[index + 1]
+                                          .mainCondition,
                                       iconSize: 30,
                                     ),
                                   ],
@@ -252,8 +244,8 @@ class _HomePageState extends State<HomePage> {
                           ),
                           index < 6
                               ? const SizedBox(
-                                  width: 10,
-                                )
+                            width: 10,
+                          )
                               : const SizedBox(),
                         ],
                       );
@@ -264,7 +256,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ),
-      );
-    }
+      ),
+    );
   }
 }
