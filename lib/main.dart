@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:lb2/home_page.dart';
+import 'package:flutter_weather_forecast/screens/home_screen.dart';
+
+import 'home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomePage(),
+      home: const HomeScreen(),
     );
   }
 }

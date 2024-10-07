@@ -1,5 +1,6 @@
 //openweathermap api key
-import 'package:lb2/weather_model.dart';
+
+import 'package:flutter_weather_forecast/weather_model.dart';
 
 import 'city_weather.dart';
 

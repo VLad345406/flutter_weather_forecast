@@ -1,5 +1,5 @@
+import 'package:flutter_weather_forecast/weather_structure.dart';
 import 'package:intl/intl.dart';
-import 'package:lb2/weather_structure.dart';
 
 class CityWeather {
   final String cityName;
