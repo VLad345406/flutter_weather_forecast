@@ -10,9 +10,9 @@ class WeatherModel {
   WeatherModel(this.apiKey);
 
   Future<CityWeather> getWeather(String cityName) async {
-    final response = await http
-        .get(
-            Uri.parse('$baseUrl?q=$cityName&cnt=8&appid=$apiKey&units=metric'));
+    final response = await http.get(
+      Uri.parse('$baseUrl?q=$cityName&cnt=8&appid=$apiKey&units=metric'),
+    );
 
     if (response.statusCode == 200) {
       return CityWeather.fromJson(jsonDecode(response.body));
