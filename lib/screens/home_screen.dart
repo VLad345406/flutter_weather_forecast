@@ -108,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       context,
                                       MaterialPageRoute(
                                         builder: (context) =>
-                                        const SettingsScreen(),
+                                            const SettingsScreen(),
                                       ),
                                     );
                                   },
@@ -200,7 +200,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   Container(
-                    height: 154,
+                    height: 160,
                     color: Colors.blue[300],
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
