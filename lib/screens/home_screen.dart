@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_weather_forecast/elements/weather_info_card.dart';
 import 'package:flutter_weather_forecast/fetch_weather.dart';
+import 'package:flutter_weather_forecast/screens/manage_location_screen.dart';
 import 'package:flutter_weather_forecast/screens/settings_screen.dart';
 import 'package:flutter_weather_forecast/weather_icon.dart';
 
@@ -88,7 +89,15 @@ class _HomeScreenState extends State<HomeScreen> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 IconButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                        const ManageLocationScreen(),
+                                      ),
+                                    );
+                                  },
                                   icon: const Icon(
                                     Icons.add,
                                     size: 35,

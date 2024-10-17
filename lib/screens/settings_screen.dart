@@ -7,7 +7,7 @@ class SettingsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        margin: const EdgeInsets.only(top: 60, left: 20, right: 20, bottom: 20),
+        margin: const EdgeInsets.only(top: 70, left: 20, right: 20, bottom: 20),
         decoration: BoxDecoration(
           color: Colors.blue[300],
           borderRadius: BorderRadius.circular(40),
