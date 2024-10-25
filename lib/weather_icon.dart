@@ -69,7 +69,7 @@ class WeatherIcon extends StatelessWidget {
     }
     return Icon(
       icon,
-      color: Colors.white,
+      color: Colors.black,
       size: iconSize,
     );
   }

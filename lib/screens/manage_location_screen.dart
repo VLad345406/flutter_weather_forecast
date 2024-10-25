@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_weather_forecast/elements/city_plate.dart';
 
 class ManageLocationScreen extends StatelessWidget {
   const ManageLocationScreen({super.key});
@@ -73,10 +74,20 @@ class ManageLocationScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 30),
               //Cities panels
-              ListView(
-                
+              Expanded(
+                child: ListView.builder(
+                  padding: const EdgeInsets.only(top: 10),
+                  itemCount: 3,
+                  itemBuilder: (BuildContext context, int index) {
+                    return const CityPlate(
+                      cityName: 'Malang',
+                      dayTemp: '20°',
+                      nightTemp: '24°',
+                      currentCity: true,
+                    );
+                  },
+                ),
               ),
             ],
           ),
