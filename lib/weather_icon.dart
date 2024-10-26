@@ -6,10 +6,16 @@ import 'package:weather_icons/weather_icons.dart';
 //https://openweathermap.org/weather-conditions
 
 class WeatherIcon extends StatelessWidget {
-  const WeatherIcon({super.key, required this.main, required this.iconSize});
+  const WeatherIcon({
+    super.key,
+    required this.main,
+    required this.iconSize,
+    required this.color,
+  });
 
   final String main;
   final double iconSize;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -58,8 +64,7 @@ class WeatherIcon extends StatelessWidget {
       case 'Clear':
         if (now.hour >= 7 && now.hour < 19) {
           icon = WeatherIcons.day_sunny;
-        }
-        else {
+        } else {
           icon = WeatherIcons.moon_alt_full;
         }
         break;
@@ -69,7 +74,7 @@ class WeatherIcon extends StatelessWidget {
     }
     return Icon(
       icon,
-      color: Colors.black,
+      color: color,
       size: iconSize,
     );
   }

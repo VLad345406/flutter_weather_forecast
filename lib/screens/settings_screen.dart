@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -7,10 +9,19 @@ class SettingsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        margin: const EdgeInsets.only(top: 70, left: 20, right: 20, bottom: 20),
+        margin: EdgeInsets.only(
+          top: Platform.isIOS ? 60 : 30,
+          left: 20,
+          right: 20,
+          bottom: 20,
+        ),
         decoration: BoxDecoration(
-          color: Colors.blue[300],
           borderRadius: BorderRadius.circular(40),
+          gradient: LinearGradient(
+            colors: [Colors.blue[300]!, Colors.blue[800]!],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
         ),
         child: Padding(
           padding: const EdgeInsets.all(15),

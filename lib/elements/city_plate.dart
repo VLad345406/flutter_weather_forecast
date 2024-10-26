@@ -63,8 +63,11 @@ class CityPlate extends StatelessWidget {
                 WeatherIcon(
                   main: 'Rain',
                   iconSize: 25,
+                  color: Colors.black,
                 ),
-                SizedBox(height: 5,),
+                SizedBox(
+                  height: 5,
+                ),
                 Text('Heavy rain'),
               ],
             ),

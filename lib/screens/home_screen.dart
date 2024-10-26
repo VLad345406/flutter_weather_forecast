@@ -78,7 +78,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     padding: const EdgeInsets.all(15),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Colors.blue[300],
+                        //color: Colors.blue[300],
+                        gradient: LinearGradient(
+                          colors: [Colors.blue[300]!, Colors.blue[800]!],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                        ),
                         borderRadius: BorderRadius.circular(40),
                       ),
                       child: Column(
@@ -94,7 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       context,
                                       MaterialPageRoute(
                                         builder: (context) =>
-                                        const ManageLocationScreen(),
+                                            const ManageLocationScreen(),
                                       ),
                                     );
                                   },
@@ -133,6 +138,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           WeatherIcon(
                             main: weather!.weather[0].mainCondition,
                             iconSize: 100,
+                            color: Colors.white,
                           ),
                           /*SvgPicture.asset(
                       'assets/icons/static/clear-night.svg',
@@ -210,7 +216,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   Container(
                     height: 160,
-                    color: Colors.blue[300],
+                    color: Colors.blue[800],
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -246,6 +252,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       main: weather!
                                           .weather[index + 1].mainCondition,
                                       iconSize: 30,
+                                      color: Colors.white,
                                     ),
                                     Text(
                                       '${weather!.weather[index + 1].temperature.round()} °C',

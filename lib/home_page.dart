@@ -114,6 +114,7 @@ class _HomePageState extends State<HomePage> {
                           WeatherIcon(
                             main: weather!.weather[0].mainCondition,
                             iconSize: 100,
+                            color: Colors.black,
                           ),
                           const SizedBox(
                             width: 15,
@@ -235,6 +236,7 @@ class _HomePageState extends State<HomePage> {
                                             main: weather!.weather[index + 1]
                                                 .mainCondition,
                                             iconSize: 30,
+                                            color: Colors.white,
                                           ),
                                         ],
                                       ),
